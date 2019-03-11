@@ -20,6 +20,20 @@ services:
     networks:
       - app-network
 
+  #NodeJS Service
+  nodejs:
+    build:
+      context: .
+      dockerfile: ./docker/nodejs/Dockerfile
+    container_name: "${DOCKER_PREFIX}-nodejs"
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/var/www/
+    networks:
+      - app-network
+
 #Docker Networks
 networks:
   app-network:

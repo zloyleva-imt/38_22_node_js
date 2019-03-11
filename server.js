@@ -12,6 +12,10 @@ app.use((req,res, next) => {
     return next();
 });
 
+app.get('/', (req,res)=>{
+    res.send("OK");
+});
+
 const users = require('./routes/users')(jsonParser);
 app.use('/users', users);
 
@@ -21,7 +25,7 @@ app.use('/products', products);
 const carts = require('./routes/carts')(jsonParser);
 app.use('/carts', carts);
 
-app.listen("3001", err => {
+app.listen("3000", err => {
    if(err){
 
    }

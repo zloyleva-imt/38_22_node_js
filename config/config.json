@@ -3,21 +3,21 @@
     "username": "root",
     "password": "123456789root",
     "database": "blog",
-    "host": "localhost",
+    "host": "db",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": "123456789root",
     "database": "blog",
-    "host": "localhost",
+    "host": "db",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": "123456789root",
     "database": "blog",
-    "host": "localhost",
+    "host": "db",
     "dialect": "mysql"
   }
 }

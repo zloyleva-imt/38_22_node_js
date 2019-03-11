@@ -9,3 +9,5 @@ show: #show docker's containers
 
 connect_db: #Connect
 	@sudo docker-compose exec db bash
+connect_nodejs: #Connect
+	@ docker-compose exec nodejs /bin/sh
