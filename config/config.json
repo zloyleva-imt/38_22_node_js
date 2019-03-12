@@ -1,22 +1,22 @@
 {
   "development": {
     "username": "root",
-    "password": "123456789root",
-    "database": "blog",
+    "password": "123456789blog",
+    "database": "node-blog",
     "host": "db",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "123456789root",
-    "database": "blog",
+    "password": "123456789blog",
+    "database": "node-blog",
     "host": "db",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "123456789root",
-    "database": "blog",
+    "password": "123456789blog",
+    "database": "node-blog",
     "host": "db",
     "dialect": "mysql"
   }
