@@ -72,6 +72,17 @@ exports.product_delete = (req, res) => {
 };
 
 exports.product_new = (req, res) => {
+
+    req.checkBody('price', "Price is require").notEmpty().trim();
+    req.checkBody('title', "Title is require").notEmpty().trim().isLength({ min: 5 }).withMessage('must be at least 5 chars long');
+    req.checkBody('description', "Description is require").trim().notEmpty();
+    req.checkBody('image', "Image is require").notEmpty().trim();
+    req.checkBody('amount', "Amount is require").notEmpty().trim();
+    const error = req.validationErrors();
+
+    if(error){
+        return res.status(422).json({error});
+    }
     console.log(req.body);
 
     Product.create({...req.body})
