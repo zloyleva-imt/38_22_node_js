@@ -3,7 +3,7 @@ const Product = require('../models').Product;
 
 
 exports.cart_show = (req, res) => {
-    const {params: {userId}} = req;
+    const userId = req.session.passport.user;
 
     CartItem.findAll({
         where:{

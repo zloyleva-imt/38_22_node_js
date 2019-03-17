@@ -51,7 +51,7 @@ passport.deserializeUser((id, done) => {
 app.use(session({
     secret: 'passport-tutorial',
     store: new FileStore(),
-    cookie: { maxAge: 60000 },
+    cookie: { maxAge: 600000 },
     resave: false,
     saveUninitialized: false
 }));
@@ -95,7 +95,7 @@ app.post('/login', (req, res, next) => {
 						console.log('\x1b[31m',err);
 						return err
 							? next(err)
-							: res.json({status:'login'});
+							: res.json({status:"login"});
 					})
 					: res.json({
 						error:'not logged user',
@@ -114,6 +114,7 @@ app.post('/logout', (req, res, next) => {
 app.post('/a', (req, res, next) => {
     console.log('\x1b[31m',req.isAuthenticated());
     if(req.isAuthenticated()){
+		console.log(req.session.passport.user)
         return res.json({status:"auth"})
     }
     return res.json({status:"not auth"})
