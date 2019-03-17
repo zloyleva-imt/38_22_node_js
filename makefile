@@ -1,5 +1,5 @@
 start: #start docker container
-	@sudo docker-compose up -d && npx nodemon server.js
+	@sudo docker-compose up -d && npx nodemon --ignore session/ server.js
 
 stop: #stop docker container
 	@sudo docker-compose down

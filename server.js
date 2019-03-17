@@ -105,6 +105,11 @@ app.post('/login', (req, res, next) => {
 	)(req, res, next);
 },);
 
+app.post('/logout', (req, res, next) => {
+    req.logout();
+    req.session.destroy();
+    return res.json({status:"logout"})
+});
 
 app.post('/a', (req, res, next) => {
     console.log('\x1b[31m',req.isAuthenticated());
@@ -114,11 +119,11 @@ app.post('/a', (req, res, next) => {
     return res.json({status:"not auth"})
 });
 
-// const products = require('./routes/products');
-// app.use('/products', products);
-//
-// const cart = require('./routes/cart');
-// app.use('/cart', cart);
+const products = require('./routes/products');
+app.use('/products', products);
+
+const carts = require('./routes/carts');
+app.use('/carts', carts);
 
 app.listen(5000, err => {
     if(err){
