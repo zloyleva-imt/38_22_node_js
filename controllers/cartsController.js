@@ -23,14 +23,22 @@ exports.cart_show = (req, res) => {
 };
 
 exports.cart_add_item = (req, res) => {
-    console.log(req.body);
+    const {userId,productId} = req.body;
 
-    Cart.create({...req.body})
-        .then(data => {
-            console.log(data);
-            res.json({
-                data: data,
-                status: "ok"
-            });
-        })
+    console.log(userId,productId);
+
+    CartItem.findOne({where:{productId}})
+        .then(catItem => {
+            // console.log(catItem);
+            if(catItem){
+                catItem.increment("amount")
+                .then(data => {
+                        res.json({
+                            data: data.get(),
+                            status: "add to cart"
+                        });
+                    })
+
+            }
+        });
 };

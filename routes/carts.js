@@ -4,7 +4,7 @@ module.exports = (jsonParser) => {
     const cartsController = require('../controllers/cartsController');
 
     router.get('/:userId', cartsController.cart_show);
-    router.post('/:userId',jsonParser, cartsController.cart_add_item);
+    router.post('/',jsonParser, cartsController.cart_add_item);
 
     return router;
 };
